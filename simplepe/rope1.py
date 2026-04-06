@@ -2,6 +2,8 @@
 # 1. [karpathy/nano-llama31](https://github.com/karpathy/nano-llama31/blob/master/llama31.py)
 # 2. [GeeeekExplorer/nano-vllm](https://github.com/GeeeekExplorer/nano-vllm/blob/main/nanovllm/layers/rotary_embedding.py)
 # for simpler implementation, remove scaling function
+# 业界主流实现, 旋转对使用半截配对, 即 (x_0, x_{d/2}), (x_1, x_{d/2+1}), ...
+
 import torch
 
 def precompute_freqs_cis(head_dim: int, max_len: int, theta: float = 10000.0) -> torch.Tensor:
